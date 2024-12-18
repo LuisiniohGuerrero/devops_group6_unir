@@ -1,21 +1,27 @@
 #!/bin/bash
 
-# Imprime el nombre del script
+# script creado para la maestria DevOps
+# imprime el nombre del script
 echo "Nombre del script: $0"
 
-# Imprime el número de argumentos
-num_args=$#
-echo "Número de argumentos: $num_args"
+# imprime el # de los argumentos
+num=$#
+echo "Número de argumentos: $num"
 
-# Verifica si hay al menos dos argumentos
-if [ $num_args -ge 2 ]; then
-    echo "$1 $2"  # Imprime el primer y segundo argumento en la misma línea
-elif [ $num_args -eq 1 ]; then
-    echo "$1"  # Si solo hay un argumento, lo imprime
+# valida que se haya ingresado argumentos
+if [ $# -eq 0 ]; then
+    echo "No se ingresaron argumentos"
 fi
 
-# Imprime argumentos adicionales (tercero en adelante) cada uno en una línea
-if [ $num_args -gt 2 ]; then
+# valida si existe 1 o 2 argumentos 
+if [ $num -ge 2 ]; then
+    echo "$1 $2"  # imprime en la misma linea los dos primeros argumentos
+elif [ $num -eq 1 ]; then
+    echo "$1"  # imprime solo el primer argumento
+fi
+
+# valida si hay mas de 2 argumentos e imprime en cada linea respectiva
+if [ $num -gt 2 ]; then
     for arg in "${@:3}"; do
         echo "$arg"
     done
